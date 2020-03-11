@@ -20,6 +20,7 @@ var (
 	JwtSecret string
 )
 
+//加载配置文件
 func init() {
 	var err error
 	Cfg, err = ini.Load("conf/app.ini")
@@ -27,8 +28,11 @@ func init() {
 		log.Fatalf("Fail to parse 'conf/app.ini': %v", err)
 	}
 
+	//从配置文件加载运行模式
 	LoadBase()
+	//从配置文件加载端口号，配置读时间过期，写过期时间
 	LoadServer()
+	//从配置文件JwtSecret，PageSize
 	LoadApp()
 }
 
