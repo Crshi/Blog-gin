@@ -4,6 +4,7 @@ go 1.14
 
 require (
 	github.com/gin-gonic/gin v1.5.0
+	github.com/go-ini/ini v1.54.0
 	github.com/go-playground/universal-translator v0.17.0 // indirect
 	github.com/golang/protobuf v1.3.4 // indirect
 	github.com/json-iterator/go v1.1.9 // indirect
@@ -17,9 +18,9 @@ require (
 )
 
 replace (
-	github.com/Crshi/Blog/pkg/setting => ../pkg/setting
-	github.com/Crshi/Blog/conf          => ../pkg/conf
-	github.com/Crshi/Blog/middleware  => ../middleware
-	github.com/Crshi/Blog/models       => ../models
-	github.com/Crshi/Blog/routers       => ../routers
+	github.com/Crshi/Blog/conf => ./conf
+	github.com/Crshi/Blog/middleware => ./middleware
+	github.com/Crshi/Blog/models => ./models
+	github.com/Crshi/Blog/pkg/setting => ./pkg/setting
+	github.com/Crshi/Blog/routers => ./routers
 )
