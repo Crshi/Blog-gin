@@ -3,6 +3,7 @@ module github.com/Crshi/Blog
 go 1.14
 
 require (
+	github.com/astaxie/beego v1.12.1
 	github.com/gin-gonic/gin v1.5.0
 	github.com/go-ini/ini v1.54.0
 	github.com/go-playground/universal-translator v0.17.0 // indirect
@@ -31,4 +32,5 @@ replace (
 	github.com/Crshi/Blog/pkg/setting => ./pkg/setting
 	github.com/Crshi/Blog/pkg/util => ./pkg/util
 	github.com/Crshi/Blog/routers => ./routers
+	github.com/Crshi/Blog/routers/api => ./routers/api
 )
