@@ -31,7 +31,6 @@ func GetTags(pageNum int, pageSize int, maps interface{}) (tags []Tag) {
 //获取所有Tag
 func GetTagTotal(maps interface{}) (count int) {
 	db.Model(&Tag{}).Where(maps).Count(&count)
-
 	return
 }
 
