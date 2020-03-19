@@ -1,11 +1,14 @@
 package routers
 
 import (
+	_ "github.com/Crshi/Blog/docs"
 	"github.com/Crshi/Blog/middleware/jwt"
 	"github.com/Crshi/Blog/pkg/setting"
 	"github.com/Crshi/Blog/routers/api"
 	v1 "github.com/Crshi/Blog/routers/api/v1"
 	"github.com/gin-gonic/gin"
+	ginSwagger "github.com/swaggo/gin-swagger"
+	"github.com/swaggo/gin-swagger/swaggerFiles"
 )
 
 //初始化路由
@@ -21,6 +24,8 @@ func InitRouter() *gin.Engine {
 	r.Use(gin.Recovery())
 
 	gin.SetMode(setting.RunMode)
+
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	r.GET("/auth", api.GetAuth)
 

@@ -16,7 +16,26 @@ type auth struct {
 	Password string `valid:"Required; MaxSize(50)"`
 }
 
-//login
+// Param
+// name="参数ming"
+// value="参数说明"
+// dataType="数据类型"
+// paramType="query" 表示参数放在哪里
+//     · header 请求参数的获取：@RequestHeader
+//     · query   请求参数的获取：@RequestParam
+//     · path（用于restful接口） 请求参数的获取：@PathVariable
+//     · body（不常用）
+//     · form（不常用）
+// defaultValue="参数的默认值"
+// required="true" 表示参数是否必须传
+
+// @Summary Login
+// @Produce  json
+// @Param username query string true "Username"
+// @Param password query string true "Password"
+// @Success 200 {object} util.Response
+// @Failure 500 {object} util.Response
+// @Router /auth [get]
 func GetAuth(c *gin.Context) {
 	username := c.Query("username")
 	password := c.Query("password")
