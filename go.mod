@@ -3,7 +3,6 @@ module github.com/Crshi/Blog
 go 1.14
 
 require (
-	github.com/EDDYCJY/go-gin-example v0.0.0-20200316052038-a2781e62bfc6 // indirect
 	github.com/astaxie/beego v1.12.1
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gin-gonic/gin v1.5.0
@@ -14,6 +13,7 @@ require (
 	github.com/jinzhu/gorm v1.9.12
 	github.com/json-iterator/go v1.1.9 // indirect
 	github.com/leodido/go-urn v1.2.0 // indirect
+	github.com/lib/pq v1.2.0 // indirect
 	github.com/mattn/go-isatty v0.0.12 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.1 // indirect
@@ -30,6 +30,7 @@ replace (
 	github.com/Crshi/Blog/middleware => ./middleware
 	github.com/Crshi/Blog/models => ./models
 	github.com/Crshi/Blog/pkg/e => ./pkg/e
+	github.com/Crshi/Blog/pkg/logging => ./pkg/logging
 	github.com/Crshi/Blog/pkg/setting => ./pkg/setting
 	github.com/Crshi/Blog/pkg/util => ./pkg/util
 	github.com/Crshi/Blog/routers => ./routers

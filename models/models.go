@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/Crshi/Blog/pkg/logging"
 	"github.com/Crshi/Blog/pkg/setting"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
@@ -43,7 +44,7 @@ func init() {
 		dbName))
 
 	if err != nil {
-		log.Println(err)
+		logging.Info(err)
 	}
 
 	gorm.DefaultTableNameHandler = func(db *gorm.DB, defaultTableName string) string {
