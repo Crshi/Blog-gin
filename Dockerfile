@@ -5,5 +5,5 @@ WORKDIR $GOPATH/src/github.com/Crshi/Blog
 COPY . $GOPATH/src/github.com/Crshi/Blog
 RUN go build .
 
-EXPOSE 8000
+EXPOSE 8080
 ENTRYPOINT ["./blog"]
