@@ -1,9 +1,7 @@
-FROM golang:latest
+FROM scratch
 
-ENV GOPROXY https://goproxy.cn,direct
-WORKDIR $GOPATH/src/github.com/Crshi/Blog
-COPY . $GOPATH/src/github.com/Crshi/Blog
-RUN go build .
+WORKDIR $GOPATH/src/github.com/Crshi/blog-gin
+COPY . $GOPATH/src/github.com/Crshi/blog-gin
 
-EXPOSE 8080
-ENTRYPOINT ["./blog"]
+EXPOSE 8088
+ENTRYPOINT ["./blog-gin"]
