@@ -42,4 +42,5 @@ replace (
 	github.com/Crshi/Blog/pkg/util => ./pkg/util
 	github.com/Crshi/Blog/routers => ./routers
 	github.com/Crshi/Blog/routers/api => ./routers/api
+	github.com/Crshi/Blog/service/cache_service => ./service/cache_service
 )
