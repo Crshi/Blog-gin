@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/Crshi/Blog/models"
+	"github.com/Crshi/Blog/pkg/app"
 	"github.com/Crshi/Blog/pkg/e"
 	"github.com/Crshi/Blog/pkg/logging"
 	"github.com/Crshi/Blog/pkg/setting"
@@ -20,24 +21,26 @@ import (
 // @Failure 500 {object} util.Response
 // @Router /api/v1/articles/{id} [get]
 func GetArticle(c *gin.Context) {
+	appG := app.Gin{c}
 	id := com.StrTo(c.Param("id")).MustInt()
 
 	valid := validation.Validation{}
 	valid.Min(id, 1, "id").Message("ID必须大于0")
 
+	if valid.HasErrors() {
+		app.MarkErrors(valid.Errors)
+		appG.Response(http.StatusOK, e.INVALID_PARAMS, nil)
+		return
+	}
+
 	code := e.INVALID_PARAMS
 	var data interface{}
-	if !valid.HasErrors() {
-		if models.ExistArticleByID(id) {
-			data = models.GetArticle(id)
-			code = e.SUCCESS
-		} else {
-			code = e.ERROR_NOT_EXIST_ARTICLE
-		}
+
+	if models.ExistArticleByID(id) {
+		data = models.GetArticle(id)
+		code = e.SUCCESS
 	} else {
-		for _, err := range valid.Errors {
-			logging.Info("err.key: %s, err.message: %s", err.Key, err.Message)
-		}
+		code = e.ERROR_NOT_EXIST_ARTICLE
 	}
 
 	c.JSON(http.StatusOK, gin.H{
