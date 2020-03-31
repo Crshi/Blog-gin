@@ -28,6 +28,7 @@ type auth struct {
 //     · form（不常用）
 // defaultValue="参数的默认值"
 // required="true" 表示参数是否必须传
+// @Security ApiKeyAuth 表示是否带验证token
 
 // @Summary Login
 // @Produce  json

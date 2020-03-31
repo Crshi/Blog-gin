@@ -1,3 +1,4 @@
+basePath: /
 definitions:
   util.Response:
     properties:
@@ -10,7 +11,10 @@ definitions:
     type: object
 info:
   contact: {}
+  description: This is a sample Server pets
   license: {}
+  title: Swagger Example API
+  version: 0.0.1
 paths:
   /api/v1/articles:
     get:
@@ -41,6 +45,8 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/util.Response'
+      security:
+      - ApiKeyAuth: []
       summary: Get multiple articles
     post:
       parameters:
@@ -91,6 +97,8 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/util.Response'
+      security:
+      - ApiKeyAuth: []
       summary: Add article
   /api/v1/articles/{id}:
     delete:
@@ -111,6 +119,8 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/util.Response'
+      security:
+      - ApiKeyAuth: []
       summary: Delete article
     get:
       parameters:
@@ -130,6 +140,8 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/util.Response'
+      security:
+      - ApiKeyAuth: []
       summary: Get a single article
     put:
       parameters:
@@ -180,6 +192,8 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/util.Response'
+      security:
+      - ApiKeyAuth: []
       summary: Update article
   /api/v1/tags:
     get:
@@ -203,6 +217,8 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/util.Response'
+      security:
+      - ApiKeyAuth: []
       summary: Get multiple article tags
     post:
       parameters:
@@ -233,6 +249,8 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/util.Response'
+      security:
+      - ApiKeyAuth: []
       summary: Add article tag
   /api/v1/tags/{id}:
     delete:
@@ -253,6 +271,8 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/util.Response'
+      security:
+      - ApiKeyAuth: []
       summary: Delete article tag
     put:
       parameters:
@@ -289,6 +309,8 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/util.Response'
+      security:
+      - ApiKeyAuth: []
       summary: Update article tag
   /auth:
     get:
@@ -315,4 +337,9 @@ paths:
           schema:
             $ref: '#/definitions/util.Response'
       summary: Login
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
 swagger: "2.0"

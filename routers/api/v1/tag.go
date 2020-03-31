@@ -19,6 +19,7 @@ import (
 // @Success 200 {object} util.Response
 // @Failure 500 {object} util.Response
 // @Router /api/v1/tags [get]
+// @Security ApiKeyAuth
 func GetTags(c *gin.Context) {
 	name := c.Query("name")
 
@@ -60,6 +61,7 @@ func GetTags(c *gin.Context) {
 // @Success 200 {object} util.Response
 // @Failure 500 {object} util.Response
 // @Router /api/v1/tags [post]
+// @Security ApiKeyAuth
 func AddTag(c *gin.Context) {
 	name := c.Query("name")
 	state := com.StrTo(c.DefaultQuery("state", "0")).MustInt()
@@ -98,6 +100,7 @@ func AddTag(c *gin.Context) {
 // @Success 200 {object} util.Response
 // @Failure 500 {object} util.Response
 // @Router /api/v1/tags/{id} [put]
+// @Security ApiKeyAuth
 func EditTag(c *gin.Context) {
 	id := com.StrTo(c.Param("id")).MustInt()
 	name := c.Query("name")
@@ -148,6 +151,7 @@ func EditTag(c *gin.Context) {
 // @Success 200 {object} util.Response
 // @Failure 500 {object} util.Response
 // @Router /api/v1/tags/{id} [delete]
+// @Security ApiKeyAuth
 func DeleteTag(c *gin.Context) {
 	id := com.StrTo(c.Param("id")).MustInt()
 

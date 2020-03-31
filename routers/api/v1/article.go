@@ -20,6 +20,7 @@ import (
 // @Success 200 {object} util.Response
 // @Failure 500 {object} util.Response
 // @Router /api/v1/articles/{id} [get]
+// @Security ApiKeyAuth
 func GetArticle(c *gin.Context) {
 	appG := app.Gin{c}
 	id := com.StrTo(c.Param("id")).MustInt()
@@ -58,6 +59,7 @@ func GetArticle(c *gin.Context) {
 // @Success 200 {object} util.Response
 // @Failure 500 {object} util.Response
 // @Router /api/v1/articles [get]
+// @Security ApiKeyAuth
 func GetArticles(c *gin.Context) {
 	data := make(map[string]interface{})
 	maps := make(map[string]interface{})
@@ -110,6 +112,7 @@ func GetArticles(c *gin.Context) {
 // @Success 200 {object} util.Response
 // @Failure 500 {object} util.Response
 // @Router /api/v1/articles [post]
+// @Security ApiKeyAuth
 func AddArticle(c *gin.Context) {
 	tagId := com.StrTo(c.Query("tag_id")).MustInt()
 	title := c.Query("title")
@@ -167,6 +170,7 @@ func AddArticle(c *gin.Context) {
 // @Success 200 {object} util.Response
 // @Failure 500 {object} util.Response
 // @Router /api/v1/articles/{id} [put]
+// @Security ApiKeyAuth
 func EditArticle(c *gin.Context) {
 	valid := validation.Validation{}
 
@@ -237,6 +241,7 @@ func EditArticle(c *gin.Context) {
 // @Success 200 {object} util.Response
 // @Failure 500 {object} util.Response
 // @Router /api/v1/articles/{id} [delete]
+// @Security ApiKeyAuth
 func DeleteArticle(c *gin.Context) {
 	id := com.StrTo(c.Param("id")).MustInt()
 
